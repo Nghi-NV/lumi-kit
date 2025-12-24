@@ -1,0 +1,46 @@
+{
+  "name": "lumi-kit",
+  "version": "1.0.0",
+  "description": "AI-driven development toolkit with multi-platform support (Claude, Cursor, Antigravity, Codex, Gemini CLI)",
+  "keywords": [
+    "ai",
+    "development",
+    "cli",
+    "claude",
+    "cursor",
+    "gemini",
+    "codex",
+    "antigravity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nghi-NV/lumi-kit.git"
+  },
+  "license": "MIT",
+  "author": "NghiNV",
+  "main": "./src/cli/index.js",
+  "bin": {
+    "lumi-kit": "./bin/lumi-kit.js"
+  },
+  "scripts": {
+    "test": "node test/test-init.js",
+    "lint": "eslint src/",
+    "start": "node bin/lumi-kit.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^14.0.0",
+    "fs-extra": "^11.3.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
