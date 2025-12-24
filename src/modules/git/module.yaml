@@ -1,0 +1,30 @@
+# Lumi Git Module
+# Git workflow helper with semantic commits
+
+code: git
+name: "Git Workflow"
+version: "2.0.0"
+
+header: "🔀 Lumi Git Module"
+subheader: "Semantic commits, PR descriptions, changelog generation"
+
+requires:
+  - core
+
+features:
+  - "Conventional commits format"
+  - "PR description generation"
+  - "Branch naming conventions"
+  - "Changelog generation"
+
+contents:
+  agents:
+    - git-expert.agent.yaml
+  
+  workflows:
+    - semantic-commit
+    - create-pr
+    - changelog
+  
+  templates:
+    - commit.md

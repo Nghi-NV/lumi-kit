@@ -1,0 +1,46 @@
+# Lumi Core Module Configuration
+# This module provides the foundation for all Lumi agents and workflows
+
+code: core
+name: "Lumi Core"
+version: "2.0.0"
+
+header: "🌟 Lumi Core Configuration"
+subheader: "Configure core settings for your Lumi installation.\nThese settings are shared across all modules and agents."
+
+# User Configuration Prompts (shown during init)
+prompts:
+  user_name:
+    question: "What should agents call you?"
+    default: "Developer"
+    result: "{value}"
+
+  output_folder:
+    question: "Where to save generated documentation?"
+    default: "docs"
+    result: "{project-root}/{value}"
+
+  communication_language:
+    question: "Preferred communication language?"
+    default: "English"
+    result: "{value}"
+
+  checkpoint_enabled:
+    question: "Enable checkpoint system for resumable workflows?"
+    default: true
+    type: boolean
+
+# Dependencies
+requires: []
+
+# Module Contents
+contents:
+  agents:
+    - lumi-master.agent.yaml
+  
+  resources:
+    - config.yaml
+
+  tasks: []
+  
+  workflows: []

@@ -1,7 +1,7 @@
 {
   "name": "lumi-kit",
-  "version": "1.0.0",
-  "description": "AI-driven development toolkit with multi-platform support (Claude, Cursor, Antigravity, Codex, Gemini CLI)",
+  "version": "2.0.0",
+  "description": "AI-driven development toolkit with modular BMAD architecture (Claude, Cursor, Antigravity, Codex, Gemini CLI)",
   "keywords": [
     "ai",
     "development",

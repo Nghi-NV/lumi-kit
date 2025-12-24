@@ -1,0 +1,95 @@
+# Lumi Module Manifest
+# Lists all available modules for installation
+
+manifest:
+  version: "2.0.0"
+  name: "Lumi-Kit"
+  description: "AI-driven development toolkit with modular architecture"
+
+modules:
+  - code: core
+    name: "Lumi Core"
+    description: "Core platform with master orchestrator"
+    version: "2.0.0"
+    required: true
+    agents:
+      - lumi-master
+    path: "core"
+
+  - code: docs
+    name: "Documentation Generator"
+    description: "11-phase autonomous documentation with diagrams"
+    version: "2.0.0"
+    required: false
+    depends_on:
+      - core
+    agents:
+      - docs-architect
+    workflows:
+      - analyze-codebase
+      - generate-component-docs
+      - generate-flow-docs
+      - generate-api-docs
+    path: "modules/docs"
+
+  - code: git
+    name: "Git Workflow"
+    description: "Semantic commits, PRs, and changelog"
+    version: "2.0.0"
+    required: false
+    depends_on:
+      - core
+    agents:
+      - git-expert
+    workflows:
+      - semantic-commit
+      - create-pr
+      - changelog
+    path: "modules/git"
+
+  - code: review
+    name: "Code Review"
+    description: "Security, performance, and quality reviews"
+    version: "2.0.0"
+    required: false
+    depends_on:
+      - core
+    agents:
+      - review-specialist
+    workflows:
+      - code-review
+      - security-audit
+      - quality-check
+    path: "modules/review"
+
+# Platform configurations
+platforms:
+  claude:
+    name: "Claude Code"
+    folder: ".claude/commands/"
+    extension: ".md"
+    format: "markdown"
+
+  cursor:
+    name: "Cursor"
+    folder: ".cursor/rules/"
+    extension: ".mdc"
+    format: "markdown"
+
+  antigravity:
+    name: "Antigravity"
+    folder: ".agent/skills/"
+    extension: ".md"
+    format: "markdown"
+
+  codex:
+    name: "Codex"
+    folder: ".codex/commands/"
+    extension: ".md"
+    format: "markdown"
+
+  gemini:
+    name: "Gemini CLI"
+    folder: ".gemini/commands/"
+    extension: ".toml"
+    format: "toml"

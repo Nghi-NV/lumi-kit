@@ -1,0 +1,32 @@
+# Lumi Core Configuration
+# Generated during lumi-kit init - customize as needed
+
+# User Settings
+user_name: "Developer"
+communication_language: "English"
+
+# Output Settings
+output_folder: "docs"
+checkpoint_enabled: true
+
+# Project Info (auto-detected during init)
+project:
+  name: ""
+  root: ""
+  detected_stack: []
+
+# Installed Modules
+modules:
+  - core
+  # - docs
+  # - git
+  # - review
+
+# Platform (which AI platforms are installed)
+platforms: []
+
+# Checkpoint Settings
+checkpoint:
+  file: "{output_folder}/.checkpoint.json"
+  auto_save: true
+  save_interval: "phase"  # phase | step | manual

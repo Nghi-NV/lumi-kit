@@ -1,0 +1,41 @@
+# Lumi Documentation Module
+# 11-phase autonomous documentation generator
+
+code: docs
+name: "Documentation Generator"
+version: "2.0.0"
+
+header: "📚 Lumi Documentation Module"
+subheader: "Generate comprehensive technical documentation with diagrams, API docs, and security audits."
+
+# Dependencies
+requires:
+  - core
+
+# Features
+features:
+  - "11-phase autonomous documentation workflow"
+  - "Checkpoint system for resume capability"
+  - "Mermaid diagram generation"
+  - "Component, Flow, and API documentation"
+  - "Security and performance audits"
+  - "Web viewer with search"
+
+# Module Contents
+contents:
+  agents:
+    - docs-architect.agent.yaml
+  
+  workflows:
+    - analyze-codebase
+    - generate-component-docs
+    - generate-flow-docs
+    - generate-api-docs
+  
+  templates:
+    - component.md
+    - flow.md
+    - api.md
+  
+  tasks:
+    - checkpoint.xml

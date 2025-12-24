@@ -1,0 +1,116 @@
+# Analyze Codebase Workflow
+# Full 11-phase documentation generation
+
+workflow:
+  metadata:
+    id: "docs/analyze-codebase"
+    name: "Analyze Codebase & Generate Documentation"
+    description: "11-phase autonomous documentation workflow with checkpoints"
+    icon: "📊"
+    version: "2.0.0"
+
+  config_source: "{project-root}/_lumi/config.yaml"
+
+  input_file_patterns:
+    source_code:
+      glob: "**/*.{js,ts,jsx,tsx,py,java,kt,swift,go,rs,c,cpp,h}"
+      exclude:
+        - "node_modules/**"
+        - ".git/**"
+        - "dist/**"
+        - "build/**"
+        - "*.min.*"
+        - "*.bundle.*"
+
+  default_output_file: "{output_folder}/.checkpoint.json"
+
+  instructions: "instructions.md"
+
+  # Execution modes
+  modes:
+    normal:
+      description: "Full user interaction, confirm each phase"
+      auto_proceed: false
+    
+    yolo:
+      description: "Automatic execution, minimal prompts"
+      auto_proceed: true
+      trigger: "#yolo"
+
+  # Phase definitions (referenced in instructions.md)
+  phases:
+    - id: "P1"
+      name: "Structure Scan"
+      goal: "Scan project structure, list files, detect stack"
+      required: true
+
+    - id: "P2"
+      name: "Code Analysis"
+      goal: "Read all files, extract components/functions"
+      required: true
+
+    - id: "P3"
+      name: "Architecture Diagrams"
+      goal: "Generate Mermaid diagrams"
+      required: true
+
+    - id: "P4"
+      name: "Component Documentation"
+      goal: "One doc per component"
+      required: true
+
+    - id: "P5"
+      name: "Flow Documentation"
+      goal: "One doc per flow"
+      required: true
+
+    - id: "P6"
+      name: "API Documentation"
+      goal: "One doc per exported module"
+      required: true
+
+    - id: "P7"
+      name: "Security Audit"
+      goal: "Check for vulnerabilities"
+      required: false
+      optional_prompt: "Run security audit?"
+
+    - id: "P8"
+      name: "Performance Audit"
+      goal: "Check for performance issues"
+      required: false
+      optional_prompt: "Run performance audit?"
+
+    - id: "P9"
+      name: "Quality Review"
+      goal: "Check code quality"
+      required: false
+      optional_prompt: "Run quality review?"
+
+    - id: "P10"
+      name: "Guides & Summary"
+      goal: "Create README and guides"
+      required: true
+
+    - id: "P11"
+      name: "Web Viewer"
+      goal: "Create browseable documentation"
+      required: false
+      optional_prompt: "Generate web viewer?"
+
+  # Output structure
+  output_structure:
+    - path: "{output_folder}/architecture/"
+      files: ["overview.md", "dependencies.md"]
+    - path: "{output_folder}/components/"
+      files: "*.md (one per component)"
+    - path: "{output_folder}/flows/"
+      files: "*.md (one per flow)"
+    - path: "{output_folder}/api/"
+      files: "*.md (one per module)"
+    - path: "{output_folder}/reports/"
+      files: ["security.md", "performance.md", "quality.md"]
+    - path: "{output_folder}/guides/"
+      files: ["setup.md", "development.md"]
+    - path: "{output_folder}/"
+      files: ["README.md", "SUMMARY.md", "index.html"]
